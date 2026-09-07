@@ -55,7 +55,7 @@ Gane Wane Sunooo aurr Nachooo....🙂‍↔️💗`,
   },
 
   social: {
-    ogTitle: "FOR VISSHUU ♡",
+    ogTitle: "Visshuu Ki Playlist ♡",
     ogDescription: "A little corner of the internet made just for Visshuu.",
   },
 } as const;
