@@ -11,6 +11,7 @@ import { HomeHero } from "@/components/layout/HomeHero";
 import { Navigation } from "@/components/layout/Navigation";
 import { MusicPlayer } from "@/components/player/MusicPlayer";
 import { MiniPlayer } from "@/components/player/MiniPlayer";
+import { NowPlayingHeadline } from "@/components/player/NowPlayingHeadline";
 import { PlaybackError } from "@/components/player/PlaybackError";
 import { AllSongsPanel } from "@/components/songs/AllSongsPanel";
 import { QueuePanel } from "@/components/queue/QueuePanel";
@@ -67,10 +68,11 @@ export function AppShell() {
               onOpenLetter={() => setLetterOpen(true)}
             />
 
-            <main className="flex flex-1 items-center justify-center px-4 pb-28 pt-24 sm:pb-10">
-              <MusicPlayer onOpenSongs={() => setSongsOpen(true)} onOpenQueue={() => setQueueOpen(true)} />
+            <main className="flex flex-1 items-center justify-center px-4 pb-32 pt-24 sm:pb-40">
+              <NowPlayingHeadline />
             </main>
 
+            <MusicPlayer onOpenSongs={() => setSongsOpen(true)} onOpenQueue={() => setQueueOpen(true)} />
             <MiniPlayer onOpenSongs={() => setSongsOpen(true)} onOpenQueue={() => setQueueOpen(true)} />
           </div>
         )}

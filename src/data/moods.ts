@@ -66,7 +66,7 @@ export const moods: Mood[] = [
     emoji: "✨",
     backgrounds: [
       { type: "image", source: "/backgrounds/party-1-dj-crowd.jpg" },
-      { type: "image", source: "/backgrounds/party-2-night-drive.jpg" },
+      { type: "image", source: "/backgrounds/party-2-concert-crowd.jpg" },
     ],
     accent: "#ff6fa5",
     overlay: 0.4,

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Yatra_One } from "next/font/google";
 import { site } from "@/data/site";
 import { PlayerProvider } from "@/lib/player-context";
 import { SecretsProvider } from "@/lib/secrets-context";
@@ -20,6 +20,13 @@ const sans = Manrope({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+// Bold decorative Devanagari display face for the "विश्शू की प्लेलिस्ट" headline.
+const hindiDisplay = Yatra_One({
+  variable: "--font-hindi",
+  subsets: ["devanagari", "latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -56,7 +63,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} h-full`}>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${hindiDisplay.variable} h-full`}>
       <body className="min-h-full overflow-x-hidden bg-background font-sans text-foreground antialiased">
         <SecretsProvider>
           <PlayerProvider>

@@ -1,6 +1,11 @@
 "use client";
 
-/** The larger, desktop/tablet music-room experience — hidden on mobile in favor of MiniPlayer. */
+/**
+ * Desktop/tablet playback bar — docked to the bottom of the screen, solid
+ * and blurred enough to read clearly no matter what's behind it (unlike a
+ * translucent floating card, which disappears over a bright background).
+ * Hidden on mobile in favor of MiniPlayer.
+ */
 
 import { ListMusic, ListPlus } from "lucide-react";
 import { usePlayer } from "@/lib/player-context";
@@ -21,23 +26,24 @@ export function MusicPlayer({
   if (!currentSong) return null;
 
   return (
-    <div className="hidden w-full max-w-xl flex-col items-center gap-8 rounded-3xl bg-black/25 p-8 shadow-2xl ring-1 ring-white/10 backdrop-blur-xl sm:flex">
-      <NowPlaying large />
+    <div className="safe-bottom fixed inset-x-0 bottom-0 z-40 hidden justify-center px-6 pb-6 sm:flex">
+      <div className="flex w-full max-w-5xl items-center gap-6 rounded-2xl bg-black/75 px-5 py-3.5 shadow-2xl ring-1 ring-white/10 backdrop-blur-xl">
+        <div className="w-56 shrink-0 lg:w-64">
+          <NowPlaying />
+        </div>
 
-      <div className="w-full">
-        <ProgressBar
-          currentTime={state.currentTime}
-          duration={state.duration}
-          onSeek={seekTo}
-          accent={currentMood.accent}
-        />
-      </div>
+        <div className="flex flex-1 flex-col items-center gap-2">
+          <PlayerControls />
+          <ProgressBar
+            currentTime={state.currentTime}
+            duration={state.duration}
+            onSeek={seekTo}
+            accent={currentMood.accent}
+          />
+        </div>
 
-      <PlayerControls size="lg" />
-
-      <div className="flex w-full items-center justify-between">
-        <VolumeControl />
-        <div className="flex items-center gap-1">
+        <div className="flex shrink-0 items-center gap-1">
+          <VolumeControl className="hidden lg:flex" />
           <button
             type="button"
             onClick={onOpenQueue}
