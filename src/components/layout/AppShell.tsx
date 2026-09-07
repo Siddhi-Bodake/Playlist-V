@@ -50,10 +50,11 @@ export function AppShell() {
   }, [searchParams]);
 
   const backgroundMood = state.hasStarted ? currentMood : getMood(defaultMood.id);
+  const variantSeed = state.currentId ?? "home";
 
   return (
     <div className="relative min-h-[100svh]">
-      <MoodBackground mood={backgroundMood} />
+      <MoodBackground mood={backgroundMood} variantSeed={variantSeed} />
 
       <AnimatePresence mode="wait">
         {!state.hasStarted ? (

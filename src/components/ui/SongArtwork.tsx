@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Music2 } from "lucide-react";
 import type { Song } from "@/data/songs";
+import { hashString } from "@/lib/hash";
 
 /** Falls back to a tasteful generated tile if a song has no artwork file yet. */
 export function SongArtwork({
@@ -17,7 +18,7 @@ export function SongArtwork({
   const [failed, setFailed] = useState(!song.artwork);
 
   if (failed) {
-    const hue = Math.abs(hashString(song.title)) % 360;
+    const hue = hashString(song.title) % 360;
     return (
       <div
         className={`flex shrink-0 items-center justify-center overflow-hidden ${className}`}
@@ -39,13 +40,4 @@ export function SongArtwork({
       onError={() => setFailed(true)}
     />
   );
-}
-
-function hashString(str: string): number {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = (hash << 5) - hash + str.charCodeAt(i);
-    hash |= 0;
-  }
-  return hash;
 }

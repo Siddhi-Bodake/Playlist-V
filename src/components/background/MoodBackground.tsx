@@ -2,25 +2,29 @@
 
 /**
  * Full-screen, crossfading background. It never reloads or interrupts
- * playback — it just fades from one mood's image to the next as the current
- * song's mood changes. Falls back to a plain gradient if an image hasn't
- * been dropped into /public/backgrounds/ yet, so the site never looks broken.
+ * playback — it just fades from one image to the next as the current song's
+ * mood (or its position within that mood's pool) changes. Falls back to a
+ * plain gradient if an image hasn't been dropped into /public/backgrounds/
+ * yet, so the site never looks broken.
  */
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import type { Mood } from "@/data/moods";
+import type { Mood, MoodBackground as MoodBackgroundConfig } from "@/data/moods";
+import { hashString } from "@/lib/hash";
+import { useIsPortrait } from "@/lib/use-is-portrait";
 
-function BackgroundLayer({ mood }: { mood: Mood }) {
+function BackgroundLayer({ background, accent }: { background: MoodBackgroundConfig; accent: string }) {
   const [failed, setFailed] = useState(false);
-  const { background } = mood;
+  const isPortrait = useIsPortrait();
+  const source = (isPortrait && background.portraitSource) || background.source;
 
   if (failed) {
     return (
       <div
         className="absolute inset-0"
         style={{
-          background: `radial-gradient(circle at 30% 20%, color-mix(in oklab, ${mood.accent} 35%, #0f0a1a) 0%, #0f0a1a 70%)`,
+          background: `radial-gradient(circle at 30% 20%, color-mix(in oklab, ${accent} 35%, #0f0a1a) 0%, #0f0a1a 70%)`,
         }}
       />
     );
@@ -30,7 +34,7 @@ function BackgroundLayer({ mood }: { mood: Mood }) {
     return (
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src={background.source}
+        src={source}
         poster={background.poster}
         autoPlay
         muted
@@ -45,28 +49,32 @@ function BackgroundLayer({ mood }: { mood: Mood }) {
   // gracefully via onError instead of surfacing Next's image-error overlay.
   return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={background.source}
-      alt=""
-      className="absolute inset-0 h-full w-full object-cover"
-      onError={() => setFailed(true)}
-    />
+    <img src={source} alt="" className="absolute inset-0 h-full w-full object-cover" onError={() => setFailed(true)} />
   );
 }
 
-export function MoodBackground({ mood }: { mood: Mood }) {
+/**
+ * `variantSeed` picks which image from the mood's pool to show — pass the
+ * current song id (or a stable fallback before playback starts) so the same
+ * song always shows the same background, while different songs in the same
+ * mood get some variety instead of one static image forever.
+ */
+export function MoodBackground({ mood, variantSeed }: { mood: Mood; variantSeed: string }) {
+  const index = hashString(`${mood.id}:${variantSeed}`) % mood.backgrounds.length;
+  const background = mood.backgrounds[index];
+
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden bg-[#0f0a1a]">
       <AnimatePresence initial={false}>
         <motion.div
-          key={mood.id}
+          key={`${mood.id}-${index}`}
           initial={{ opacity: 0, scale: 1.04 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.02 }}
           transition={{ duration: 1.1, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <BackgroundLayer mood={mood} />
+          <BackgroundLayer background={background} accent={mood.accent} />
         </motion.div>
       </AnimatePresence>
 

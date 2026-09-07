@@ -99,10 +99,31 @@ until you fill in a real `youtubeId`.
 
 ## How to change backgrounds
 
-Drop images into `/public/backgrounds/` named to match `src/data/moods.ts`
-(currently `silent.jpg` and `party.jpg`). Any image size works — it's
-cropped to fill the screen with a readability overlay on top. No image yet?
-The site falls back to a soft gradient instead of breaking.
+Each mood in `src/data/moods.ts` holds a **pool** of background images, not
+just one — the site picks one deterministically based on the current song
+(so the same song always shows the same background, but different songs in
+the same mood get some variety). To add/replace one, drop an image into
+`/public/backgrounds/` and add/edit its entry in the mood's `backgrounds`
+array:
+
+```ts
+{ type: "image", source: "/backgrounds/silent-2-night-drive.jpg" }
+```
+
+One entry can also carry a `portraitSource` — a separate crop of the same
+artwork shown on narrow/tall (phone-portrait) screens instead of `source`:
+
+```ts
+{
+  type: "image",
+  source: "/backgrounds/silent-1-sunset-mountain.jpg",
+  portraitSource: "/backgrounds/silent-1-sunset-mountain-portrait.jpg",
+}
+```
+
+Any image size works — it's cropped to fill the screen with a readability
+overlay on top. No image yet? The site falls back to a soft gradient instead
+of breaking.
 
 ## How to add memories
 
