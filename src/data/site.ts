@@ -1,0 +1,57 @@
+/**
+ * SITE CONTENT CONFIGURATION
+ * ---------------------------------------------------------------------------
+ * Every piece of personal copy on the site lives here. Edit this file to
+ * change what the site says — no component should hardcode this text.
+ */
+
+export const site = {
+  name: "For Vishuu",
+  displayName: "FOR VISHUU ♡",
+  subtitle: "Every song has a little piece of us.",
+  tagline: "Press play. Stay for a while.",
+  description: "A little corner of the internet made just for Visshuu.",
+
+  // Shown briefly under the title on first load, before the player starts.
+  homeMessage: {
+    title: "FOR VISHUU ♡",
+    prompt: "Press play.",
+  },
+
+  // Time-of-day greetings shown subtly once the player is open.
+  // Keep these short — this is atmosphere, not a headline.
+  greetings: {
+    morning: "Good morning, Visshuu.",
+    afternoon: "Hi, Visshuu.",
+    evening: "Good evening, Visshuu.",
+    lateNight: "Still awake?",
+  },
+
+  // "A little something for you" — the personal letter. Edit freely.
+  letter: {
+    trigger: "A little something for you",
+    heading: "For you",
+    // Use "\n\n" for paragraph breaks — the LoveLetter component splits on it.
+    body: `If you're reading this, you pressed the right button.
+
+I made this place because you deserve a corner of the internet that's just yours — every song here reminds me of you, one way or another.
+
+Press play, get lost in it for a while, and know that wherever you are, a little part of this is always playing for you too.
+
+Stay as long as you want.`,
+    signature: "— always yours",
+  },
+
+  // Small hidden interactions. Keep this list short and intentional.
+  secrets: {
+    heart: "You're my favorite person.",
+    hidden: "Found something that wasn't supposed to be this easy to find.",
+  },
+
+  social: {
+    ogTitle: "FOR VISHUU ♡",
+    ogDescription: "A little corner of the internet made just for Visshuu.",
+  },
+} as const;
+
+export type Site = typeof site;

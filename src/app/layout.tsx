@@ -1,0 +1,73 @@
+import type { Metadata, Viewport } from "next";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { site } from "@/data/site";
+import { PlayerProvider } from "@/lib/player-context";
+import { SecretsProvider } from "@/lib/secrets-context";
+import { PWARegister } from "@/components/layout/PWARegister";
+import { OfflineBanner } from "@/components/layout/OfflineBanner";
+import { StickyNote } from "@/components/notes/StickyNote";
+import { HiddenCorner } from "@/components/layout/HiddenCorner";
+import "./globals.css";
+
+const display = Cormorant_Garamond({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const sans = Manrope({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://for-vishuu.vercel.app"),
+  title: site.displayName,
+  description: site.description,
+  applicationName: site.displayName,
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "For Vishuu",
+  },
+  openGraph: {
+    title: site.social.ogTitle,
+    description: site.social.ogDescription,
+    type: "website",
+    siteName: site.displayName,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.social.ogTitle,
+    description: site.social.ogDescription,
+  },
+  robots: { index: false, follow: false },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#150c22",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  viewportFit: "cover",
+};
+
+export default function RootLayout({ children }: LayoutProps<"/">) {
+  return (
+    <html lang="en" className={`${display.variable} ${sans.variable} h-full`}>
+      <body className="min-h-full overflow-x-hidden bg-background font-sans text-foreground antialiased">
+        <SecretsProvider>
+          <PlayerProvider>
+            <OfflineBanner />
+            {children}
+            <StickyNote />
+            <HiddenCorner />
+          </PlayerProvider>
+        </SecretsProvider>
+        <PWARegister />
+      </body>
+    </html>
+  );
+}
