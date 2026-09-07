@@ -1,4 +1,6 @@
-export const metadata = { title: "Offline — For Vishuu" };
+import { site } from "@/data/site";
+
+export const metadata = { title: `Offline — ${site.name}` };
 
 export default function OfflinePage() {
   return (

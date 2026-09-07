@@ -19,7 +19,7 @@ export function Navigation({
   return (
     <header className="safe-top fixed inset-x-0 top-0 z-40 flex items-center justify-between px-4 pb-3 sm:px-8">
       <p className="select-none font-serif text-base tracking-wide text-white/90 sm:text-lg">
-        FOR VISHUU{" "}
+        {site.wordmark}{" "}
         <button
           type="button"
           onClick={() => reveal(site.secrets.heart)}

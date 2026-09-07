@@ -6,15 +6,19 @@
  */
 
 export const site = {
-  name: "For Vishuu",
-  displayName: "FOR VISHUU ♡",
-  subtitle: "Every song has a little piece of us.",
+  name: "For Visshuu",
+  shortName: "Visshuu",
+  displayName: "FOR VISSHUU ♡",
+  // Bare wordmark (no heart) — the nav renders the ♡ as its own clickable
+  // easter-egg button right after this, rather than baking it into the text.
+  wordmark: "FOR VISSHUU",
+  subtitle: "Kya hal chal Visshuu? 🙂‍↔️",
   tagline: "Press play. Stay for a while.",
   description: "A little corner of the internet made just for Visshuu.",
 
   // Shown briefly under the title on first load, before the player starts.
   homeMessage: {
-    title: "FOR VISHUU ♡",
+    title: "FOR VISSHUU ♡",
     prompt: "Press play.",
   },
 
@@ -55,7 +59,7 @@ Stay as long as you want.`,
   },
 
   social: {
-    ogTitle: "FOR VISHUU ♡",
+    ogTitle: "FOR VISSHUU ♡",
     ogDescription: "A little corner of the internet made just for Visshuu.",
   },
 } as const;
