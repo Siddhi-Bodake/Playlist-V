@@ -22,9 +22,10 @@ const sans = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
-// Bold, blocky Devanagari display face for the "विश्शू की प्लेलिस्ट" headline —
-// the thick poster/meme-style look ("पापा के जमाने के गाने"), not a thin script face.
-const hindiDisplay = Baloo_2({
+// Bold, blocky display face for the "Visshuu Ki Playlist" headline — the
+// thick poster/meme-style look (like "पापा के जमाने के गाने"), not a thin
+// script face. Devanagari subset kept in case Hindi copy is ever added here.
+const headlineDisplay = Baloo_2({
   variable: "--font-hindi",
   subsets: ["devanagari", "latin"],
   weight: ["700", "800"],
@@ -64,7 +65,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${hindiDisplay.variable} h-full`}>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${headlineDisplay.variable} h-full`}>
       <body className="min-h-full overflow-x-hidden bg-background font-sans text-foreground antialiased">
         <SecretsProvider>
           <PlayerProvider>

@@ -5,6 +5,11 @@
  * playing — no card behind it, just text + shadow, the way the reference
  * sites treat their headline. Purely decorative (favorite/etc. controls
  * live in the bottom player bar), so it never intercepts clicks.
+ *
+ * The headline text itself is plain English ("Visshuu Ki Playlist") rather
+ * than transliterated Hindi — the name doesn't transliterate cleanly — but
+ * it's still set in the same bold, chunky display face (Baloo 2) that gives
+ * the reference sites' Devanagari headlines their poster-y look.
  */
 
 import { motion } from "framer-motion";
@@ -17,12 +22,9 @@ export function NowPlayingHeadline() {
 
   return (
     <div className="pointer-events-none flex flex-col items-center px-6 text-center">
-      {site.hindiHeadline && (
-        <p
-          className="font-hindi text-balance text-[13vw] font-extrabold leading-none text-white/95 drop-shadow-[0_6px_32px_rgba(0,0,0,0.65)] sm:text-6xl md:text-7xl lg:text-8xl"
-          lang="hi"
-        >
-          {site.hindiHeadline}
+      {site.playlistHeadline && (
+        <p className="font-hindi text-balance text-[10vw] font-extrabold leading-none text-white/95 drop-shadow-[0_6px_32px_rgba(0,0,0,0.65)] sm:text-6xl md:text-7xl lg:text-8xl">
+          {site.playlistHeadline}
         </p>
       )}
 

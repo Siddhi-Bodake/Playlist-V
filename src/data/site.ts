@@ -18,9 +18,9 @@ export const site = {
     prompt: "Press play.",
   },
 
-  // Big decorative Devanagari headline shown behind the player once a song
-  // is playing — edit or remove freely (set to null to hide it entirely).
-  hindiHeadline: "विश्शू की प्लेलिस्ट",
+  // Big decorative headline shown behind the player once a song is playing
+  // — edit or remove freely (set to null to hide it entirely).
+  playlistHeadline: "Visshuu Ki Playlist",
 
   // Time-of-day greetings shown subtly once the player is open.
   // Keep these short — this is atmosphere, not a headline.
