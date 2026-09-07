@@ -107,7 +107,7 @@ the same mood get some variety). To add/replace one, drop an image into
 array:
 
 ```ts
-{ type: "image", source: "/backgrounds/silent-2-night-drive.jpg" }
+{ type: "image", source: "/backgrounds/silent-1-campfire.jpg" }
 ```
 
 One entry can also carry a `portraitSource` — a separate crop of the same
@@ -116,8 +116,8 @@ artwork shown on narrow/tall (phone-portrait) screens instead of `source`:
 ```ts
 {
   type: "image",
-  source: "/backgrounds/silent-1-sunset-mountain.jpg",
-  portraitSource: "/backgrounds/silent-1-sunset-mountain-portrait.jpg",
+  source: "/backgrounds/silent-3-sunset-mountain.jpg",
+  portraitSource: "/backgrounds/silent-3-sunset-mountain-portrait.jpg",
 }
 ```
 
