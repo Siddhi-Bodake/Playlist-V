@@ -23,7 +23,7 @@ function MemoryCard({ memory }: { memory: (typeof memories)[number] }) {
 
   if (memory.layout === "strip" && photos.length > 0) {
     return (
-      <div className="flex flex-col gap-1 rounded-2xl bg-white/5 p-3 ring-1 ring-white/10">
+      <div className="flex flex-col gap-1 rounded-2xl bg-panel-soft p-3 ring-1 ring-panel-border">
         {photos.map((src, i) =>
           failed ? null : (
             // eslint-disable-next-line @next/next/no-img-element
@@ -36,7 +36,9 @@ function MemoryCard({ memory }: { memory: (typeof memories)[number] }) {
             />
           )
         )}
-        {memory.caption && <p className="px-1 pt-1 text-center font-serif text-sm text-white/80">{memory.caption}</p>}
+        {memory.caption && (
+          <p className="px-1 pt-1 text-center font-serif text-sm text-panel-fg">{memory.caption}</p>
+        )}
       </div>
     );
   }
@@ -91,18 +93,18 @@ export function Memories({ open, onClose }: { open: boolean; onClose: () => void
             initial={{ y: 24, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 24, opacity: 0 }}
-            className="safe-top safe-bottom mx-auto flex h-[100svh] w-full max-w-3xl flex-col bg-[#150c22] sm:my-6 sm:h-[calc(100svh-3rem)] sm:rounded-3xl sm:ring-1 sm:ring-white/10"
+            className="safe-top safe-bottom mx-auto flex h-[100svh] w-full max-w-3xl flex-col bg-panel sm:my-6 sm:h-[calc(100svh-3rem)] sm:rounded-3xl sm:ring-1 sm:ring-panel-border"
           >
             <div className="flex items-start justify-between px-5 pt-5 sm:px-8 sm:pt-8">
               <div>
-                <h2 className="font-serif text-3xl text-white">Our Little Things</h2>
-                <p className="mt-1 text-sm text-white/50">A few small things worth keeping.</p>
+                <h2 className="font-serif text-3xl text-panel-fg">Our Little Things</h2>
+                <p className="mt-1 text-sm text-panel-muted">A few small things worth keeping.</p>
               </div>
               <button
                 type="button"
                 onClick={onClose}
                 aria-label="Close"
-                className="flex h-11 w-11 items-center justify-center rounded-full text-white/60 hover:bg-white/5 hover:text-white"
+                className="flex h-11 w-11 items-center justify-center rounded-full text-panel-muted hover:bg-panel-soft hover:text-panel-fg"
               >
                 <X size={20} aria-hidden />
               </button>

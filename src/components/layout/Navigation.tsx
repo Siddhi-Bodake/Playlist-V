@@ -3,6 +3,7 @@
 import { Images, ListMusic, Mail } from "lucide-react";
 import { site } from "@/data/site";
 import { useSecrets } from "@/lib/secrets-context";
+import { ShareButton } from "./ShareButton";
 
 export function Navigation({
   onOpenSongs,
@@ -30,6 +31,7 @@ export function Navigation({
       </p>
 
       <nav className="flex items-center gap-1" aria-label="Site">
+        <ShareButton />
         <button
           type="button"
           onClick={onOpenMemories}
