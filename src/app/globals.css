@@ -5,7 +5,7 @@
  * bar are deliberately dark-styled ALWAYS — that's not a theme choice, it's
  * how light text stays legible over an arbitrary photo (the reference sites
  * do the same). What genuinely follows the system's light/dark setting is
- * the flat UI surfaces: All Songs, Queue, Memories — the "panel-*" tokens.
+ * the flat UI surfaces: All Songs, Queue — the "panel-*" tokens.
  */
 :root {
   --background: #0f0a1a;

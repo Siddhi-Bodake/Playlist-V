@@ -46,7 +46,7 @@ src/
     songs/              # All Songs panel, search/filter, song rows
     queue/              # Queue panel
     background/         # crossfading mood background
-    memories/            # "Our Little Things" + the letter
+    memories/            # the personal letter
     notes/               # the always-there sticky note
     layout/              # nav, hero, PWA/offline plumbing, easter eggs
     ui/                  # small shared bits (artwork w/ fallback)
@@ -54,13 +54,11 @@ src/
     site.ts             # site copy, greetings, the letter, secrets
     songs.ts            # the song library
     moods.ts            # backgrounds ("silent" / "party")
-    memories.ts          # "Our Little Things" cards
   lib/                 # player state, YouTube loader, storage, helpers
 public/
   backgrounds/         # mood background images
   songs/artwork/       # song cover art
-  memories/            # memory photos
-  icons/, photos/
+  icons/
 ```
 
 ## How the "mood" system works
@@ -124,12 +122,6 @@ artwork shown on narrow/tall (phone-portrait) screens instead of `source`:
 Any image size works — it's cropped to fill the screen with a readability
 overlay on top. No image yet? The site falls back to a soft gradient instead
 of breaking.
-
-## How to add memories
-
-Open `src/data/memories.ts` and add an entry. `layout` controls how it's
-presented (`"polaroid"`, `"full"`, `"note"`, `"strip"` for a photo strip).
-Photos go in `/public/memories/`.
 
 ## How to modify the personal message
 

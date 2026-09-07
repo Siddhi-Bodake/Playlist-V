@@ -1,17 +1,15 @@
 "use client";
 
-import { Images, ListMusic, Mail } from "lucide-react";
+import { ListMusic, Mail } from "lucide-react";
 import { site } from "@/data/site";
 import { useSecrets } from "@/lib/secrets-context";
 import { ShareButton } from "./ShareButton";
 
 export function Navigation({
   onOpenSongs,
-  onOpenMemories,
   onOpenLetter,
 }: {
   onOpenSongs: () => void;
-  onOpenMemories: () => void;
   onOpenLetter: () => void;
 }) {
   const { reveal } = useSecrets();
@@ -32,14 +30,6 @@ export function Navigation({
 
       <nav className="flex items-center gap-1" aria-label="Site">
         <ShareButton />
-        <button
-          type="button"
-          onClick={onOpenMemories}
-          aria-label="Our little things"
-          className="flex h-11 w-11 items-center justify-center rounded-full text-white/75 transition-colors hover:bg-white/10 hover:text-white"
-        >
-          <Images size={18} aria-hidden />
-        </button>
         <button
           type="button"
           onClick={onOpenLetter}

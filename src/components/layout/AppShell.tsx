@@ -15,7 +15,6 @@ import { NowPlayingHeadline } from "@/components/player/NowPlayingHeadline";
 import { PlaybackError } from "@/components/player/PlaybackError";
 import { AllSongsPanel } from "@/components/songs/AllSongsPanel";
 import { QueuePanel } from "@/components/queue/QueuePanel";
-import { Memories } from "@/components/memories/Memories";
 import { LoveLetter } from "@/components/memories/LoveLetter";
 
 export function AppShell() {
@@ -25,7 +24,6 @@ export function AppShell() {
 
   const [songsOpen, setSongsOpen] = useState(false);
   const [queueOpen, setQueueOpen] = useState(false);
-  const [memoriesOpen, setMemoriesOpen] = useState(false);
   const [letterOpen, setLetterOpen] = useState(false);
 
   // Shareable URLs: /?song=blue-eyes or /?mood=party — applied once on load.
@@ -62,11 +60,7 @@ export function AppShell() {
           <HomeHero key="hero" onPlay={startRadio} />
         ) : (
           <div key="main" className="flex min-h-[100svh] flex-col">
-            <Navigation
-              onOpenSongs={() => setSongsOpen(true)}
-              onOpenMemories={() => setMemoriesOpen(true)}
-              onOpenLetter={() => setLetterOpen(true)}
-            />
+            <Navigation onOpenSongs={() => setSongsOpen(true)} onOpenLetter={() => setLetterOpen(true)} />
 
             <main className="flex flex-1 items-center justify-center px-4 pb-32 pt-24 sm:pb-40">
               <NowPlayingHeadline />
@@ -81,7 +75,6 @@ export function AppShell() {
       <PlaybackError />
       <AllSongsPanel open={songsOpen} onClose={() => setSongsOpen(false)} />
       <QueuePanel open={queueOpen} onClose={() => setQueueOpen(false)} />
-      <Memories open={memoriesOpen} onClose={() => setMemoriesOpen(false)} />
       <LoveLetter open={letterOpen} onClose={() => setLetterOpen(false)} />
     </div>
   );
