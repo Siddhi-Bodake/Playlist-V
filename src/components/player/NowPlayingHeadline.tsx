@@ -19,7 +19,7 @@ export function NowPlayingHeadline() {
     <div className="pointer-events-none flex flex-col items-center px-6 text-center">
       {site.hindiHeadline && (
         <p
-          className="font-hindi text-balance text-[13vw] leading-none text-white/95 drop-shadow-[0_6px_32px_rgba(0,0,0,0.65)] sm:text-6xl md:text-7xl lg:text-8xl"
+          className="font-hindi text-balance text-[13vw] font-extrabold leading-none text-white/95 drop-shadow-[0_6px_32px_rgba(0,0,0,0.65)] sm:text-6xl md:text-7xl lg:text-8xl"
           lang="hi"
         >
           {site.hindiHeadline}

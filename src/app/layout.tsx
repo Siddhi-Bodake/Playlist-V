@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope, Yatra_One } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Baloo_2 } from "next/font/google";
 import { site } from "@/data/site";
 import { PlayerProvider } from "@/lib/player-context";
 import { SecretsProvider } from "@/lib/secrets-context";
@@ -22,11 +22,12 @@ const sans = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
-// Bold decorative Devanagari display face for the "विश्शू की प्लेलिस्ट" headline.
-const hindiDisplay = Yatra_One({
+// Bold, blocky Devanagari display face for the "विश्शू की प्लेलिस्ट" headline —
+// the thick poster/meme-style look ("पापा के जमाने के गाने"), not a thin script face.
+const hindiDisplay = Baloo_2({
   variable: "--font-hindi",
   subsets: ["devanagari", "latin"],
-  weight: "400",
+  weight: ["700", "800"],
 });
 
 export const metadata: Metadata = {
