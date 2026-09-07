@@ -6,10 +6,10 @@
  * sites treat their headline. Purely decorative (favorite/etc. controls
  * live in the bottom player bar), so it never intercepts clicks.
  *
- * The headline text itself is plain English ("Visshuu Ki Playlist") rather
- * than transliterated Hindi — the name doesn't transliterate cleanly — but
- * it's still set in the same bold, chunky display face (Baloo 2) that gives
- * the reference sites' Devanagari headlines their poster-y look.
+ * The headline mixes scripts on purpose — "Visshuu" stays in English (his
+ * name), "की प्लेलिस्ट" is in Hindi — set in the same bold, chunky display
+ * face (Baloo 2) that gives the reference sites' headlines their poster-y
+ * look, in both scripts.
  */
 
 import { motion } from "framer-motion";

@@ -19,8 +19,10 @@ export const site = {
   },
 
   // Big decorative headline shown behind the player once a song is playing
-  // — edit or remove freely (set to null to hide it entirely).
-  playlistHeadline: "Visshuu Ki Playlist",
+  // — edit or remove freely (set to null to hide it entirely). "Visshuu"
+  // stays in English (his name), "ki playlist" is in Hindi — the common
+  // Hinglish mixing style, not a translation slip.
+  playlistHeadline: "Visshuu की प्लेलिस्ट",
 
   // Time-of-day greetings shown subtly once the player is open.
   // Keep these short — this is atmosphere, not a headline.
