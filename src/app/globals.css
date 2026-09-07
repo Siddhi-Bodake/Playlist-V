@@ -44,6 +44,7 @@
   --font-serif: var(--font-display);
   --font-sans: var(--font-sans);
   --font-hindi: var(--font-hindi);
+  --font-handwritten: var(--font-handwritten);
 }
 
 html {

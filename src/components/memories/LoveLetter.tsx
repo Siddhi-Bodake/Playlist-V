@@ -39,15 +39,15 @@ export function LoveLetter({ open, onClose }: { open: boolean; onClose: () => vo
               <X size={18} aria-hidden />
             </button>
 
-            <p className="mb-6 text-center font-serif text-2xl italic">{site.letter.heading}</p>
+            <p className="mb-4 text-center font-handwritten text-4xl font-semibold">{site.letter.heading}</p>
 
-            <div className="space-y-4 font-serif text-[17px] leading-relaxed">
+            <div className="space-y-4 font-handwritten text-[26px] leading-snug sm:text-[28px]">
               {paragraphs.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}
             </div>
 
-            <p className="mt-8 text-right font-serif italic text-[#3a2418]/70">{site.letter.signature}</p>
+            <p className="mt-6 text-right font-handwritten text-2xl text-[#3a2418]/70">{site.letter.signature}</p>
           </motion.div>
         </motion.div>
       )}

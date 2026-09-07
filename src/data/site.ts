@@ -42,13 +42,9 @@ export const site = {
     trigger: "A little something for you",
     heading: "For you",
     // Use "\n\n" for paragraph breaks — the LoveLetter component splits on it.
-    body: `If you're reading this, you pressed the right button.
+    body: `Hello Visshuu! If you are reading this matalb you pressed the right button🙂‍↔️💅🏻
 
-I made this place because you deserve a corner of the internet that's just yours — every song here reminds me of you, one way or another.
-
-Press play, get lost in it for a while, and know that wherever you are, a little part of this is always playing for you too.
-
-Stay as long as you want.`,
+Gane Wane Sunooo aurr Nachooo....🙂‍↔️💗`,
     signature: "— always yours",
   },
 

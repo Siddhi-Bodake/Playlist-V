@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope, Baloo_2 } from "next/font/google";
+import { Cormorant_Garamond, Manrope, Baloo_2, Caveat } from "next/font/google";
 import { site } from "@/data/site";
 import { PlayerProvider } from "@/lib/player-context";
 import { SecretsProvider } from "@/lib/secrets-context";
@@ -29,6 +29,14 @@ const headlineDisplay = Baloo_2({
   variable: "--font-hindi",
   subsets: ["devanagari", "latin"],
   weight: ["700", "800"],
+});
+
+// Bubbly handwritten face for the personal letter — a real note, not a
+// formal one.
+const handwritten = Caveat({
+  variable: "--font-handwritten",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -65,7 +73,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${sans.variable} ${headlineDisplay.variable} h-full`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${sans.variable} ${headlineDisplay.variable} ${handwritten.variable} h-full`}
+    >
       <body className="min-h-full overflow-x-hidden bg-background font-sans text-foreground antialiased">
         <SecretsProvider>
           <PlayerProvider>
